@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: 400013494799.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
+          image: 400013494799.dkr.ecr.ap-south-1.amazonaws.com/backend:e24a494
           ports:
             - containerPort: 8000
           envFrom:
@@ -69,7 +69,7 @@ spec:
     spec:
       containers:
         - name: celery-worker
-          image: 400013494799.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
+          image: 400013494799.dkr.ecr.ap-south-1.amazonaws.com/backend:e24a494
           command: ["celery", "-A", "crtd", "worker", "-l", "info"]
           envFrom:
             - configMapRef:
@@ -106,7 +106,7 @@ spec:
     spec:
       containers:
         - name: celery-beat
-          image: 400013494799.dkr.ecr.ap-south-1.amazonaws.com/backend:latest
+          image: 400013494799.dkr.ecr.ap-south-1.amazonaws.com/backend:e24a494
           command: ["celery", "-A", "crtd", "beat", "-l", "info"]
           envFrom:
             - configMapRef:
