@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: crtd
+data:
+  APP_ENV: "staging"
+  DEBUG: "False"
+  ALLOWED_HOSTS: "dev.crtd.in,localhost,127.0.0.1,backend-service"
+  CORS_ALLOWED_ORIGINS: "https://dev.crtd.in"
+  CSRF_TRUSTED_ORIGINS: "https://dev.crtd.in"
+  SECURE_HSTS_SECONDS: "3600"
+  USE_REDIS_CACHE: "true"
+  CELERY_BROKER_URL: "redis://:$(REDIS_PASSWORD)@redis-service:6379/0"
+  CELERY_RESULT_BACKEND: "redis://:$(REDIS_PASSWORD)@redis-service:6379/0"
+  REDIS_CACHE_URL: "redis://:$(REDIS_PASSWORD)@redis-service:6379/1"
+  EMAIL_HOST: "smtp.gmail.com"
+  EMAIL_PORT: "587"
+  EMAIL_USE_TLS: "true"
+  SUBSCRIPTION_AMOUNT_PAISE: "0"
+  SUBSCRIPTION_DURATION_MONTHS: "6"
